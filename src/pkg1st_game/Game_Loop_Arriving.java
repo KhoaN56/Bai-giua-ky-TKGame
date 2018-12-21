@@ -15,10 +15,10 @@ public class Game_Loop_Arriving implements Runnable{
 		this.isRunning = isRunning;
 		this.demo = demo;
 		
-		Character c1 = new Character(new Vector2D(300, 300), 0, new Vector2D(0, 0), 0, Color.RED);
-		Character c2 = new Character(new Vector2D(0, 300), 0, new Vector2D(0, 0), 0, Color.GREEN);
+		Character c1 = new Character(new Vector2D(900, 200), 0, new Vector2D(0, 0), 0, Color.RED);
+		Character c2 = new Character(new Vector2D(0, 100), 0, new Vector2D(0, 0), 0, Color.GREEN);
 		
-                target= new Character(new Vector2D (150, 500),80,new Vector2D(0,0),0,Color.BLACK);
+                target= new Character(new Vector2D (500, 500),80,new Vector2D(0,0),0,Color.BLACK);
 		this.characters = new ArrayList<Character>();
 		this.kinematicSeeks = new ArrayList<KinematicSeek>();
 		this.arrivings= new ArrayList<KinematicArriving>();
@@ -26,7 +26,7 @@ public class Game_Loop_Arriving implements Runnable{
 		this.characters.add(c2);
 		for (Character c: this.characters) {
 			//this.kinematicWandering = new KinematicWandering(c, 5, 1);
-			this.arrivings.add(new KinematicArriving(c,target,6,50));
+			this.arrivings.add(new KinematicArriving(c,target,15,1,50,500));
                         //this.kinematicSeeks.add(new KinematicSeek(c,target , 2));
 		}
 	}

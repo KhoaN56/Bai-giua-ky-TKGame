@@ -13,18 +13,24 @@ import static java.lang.invoke.MethodHandles.constant;
  */
 public class KinematicArriving {
 
-    Character character;
-    Character target;
-    float maxSpeed;
-    float radius;
+    private Character character;
+    private Character target;
+    private double maxSpeed;
+    private double maxAcceleration;
+    private double targetRadius;
+    private double slowRadius;
     private float timeToTarget = (float) 0.25;
 
-    public KinematicArriving(Character character, Character target, float maxSpeed, float radius) {
+    public KinematicArriving(Character character, Character target, double maxSpeed, double maxAcceleration, double targetRadius, double slowRadius) {
         this.character = character;
         this.target = target;
         this.maxSpeed = maxSpeed;
-        this.radius = radius;
+        this.maxAcceleration = maxAcceleration;
+        this.targetRadius = targetRadius;
+        this.slowRadius = slowRadius;
     }
+
+    
 
     public KinematicArriving() {
     }
@@ -37,12 +43,20 @@ public class KinematicArriving {
         return target;
     }
 
-    public float getMaxSpeed() {
+    public double getMaxSpeed() {
         return maxSpeed;
     }
+    
+    public double getMaxAcceleration(){
+        return this.maxAcceleration;
+    }
+    
+    public double getSlowRadius(){
+        return this.slowRadius;
+    }
 
-    public float getRadius() {
-        return radius;
+    public double getTargetRadius() {
+        return targetRadius;
     }
 
     public float getTimeToTarget() {
@@ -61,23 +75,29 @@ public class KinematicArriving {
         this.maxSpeed = maxSpeed;
     }
 
-    public void setRadius(float radius) {
-        this.radius = radius;
+    public void setTargetRadius(float targetRadius) {
+        this.targetRadius = targetRadius;
     }
 
     public KinematicOutput generateKinematicOutput() {
-        Vector2D velocity = new Vector2D();
-        velocity = Vector2D.subVector2D(target.getPosition(), character.getPosition());
-        if (velocity.getLength() < this.radius) {
+        Vector2D direction = new Vector2D();
+        direction = Vector2D.subVector2D(target.getPosition(), character.getPosition());
+        double distance = direction.getLength();
+        if (distance < this.targetRadius) {
             return new KinematicOutput(new Vector2D(0,0), 0);
         }
-        velocity = velocity.mulConstant(1 / timeToTarget);
-        if (velocity.getLength() > this.maxSpeed) {
-            velocity.normalize();
-            velocity.mulConstant(maxSpeed);
-        }
-        character.setOrientation(Character.getNewOrientation(character.getOrientation(), velocity));
+        double targetSpeed;
+        if(distance > this.slowRadius)
+            targetSpeed = this.maxSpeed;
+        else
+            targetSpeed = this.maxSpeed*(distance/this.slowRadius);
+        Vector2D targetVelocity = new Vector2D();
+        targetVelocity = direction;
+        targetVelocity.normalize();
+        targetVelocity.mulConstant(targetSpeed);
+        Vector2D linear = new Vector2D();
+        character.setOrientation(Character.getNewOrientation(character.getOrientation(), targetVelocity));
 //        character.setRotation(0);
-        return new KinematicOutput(velocity, 0);
+        return new KinematicOutput(targetVelocity, 0);
     }
 }

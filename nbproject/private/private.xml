@@ -5,8 +5,12 @@
         <group>
             <file>file:/E:/Personal/HTG%20Locker/Tai_lieu_hoc_tap/Game_co_ban/1st_game/src/movement/Character.java</file>
             <file>file:/E:/Personal/HTG%20Locker/Tai_lieu_hoc_tap/Game_co_ban/1st_game/src/movement/KinematicOutput.java</file>
+            <file>file:/E:/Personal/HTG%20Locker/Tai_lieu_hoc_tap/Game_co_ban/1st_game/src/movement/KinematicFlee.java</file>
+            <file>file:/E:/Personal/HTG%20Locker/Tai_lieu_hoc_tap/Game_co_ban/1st_game/src/pkg1st_game/KinematicArriving.java</file>
             <file>file:/E:/Personal/HTG%20Locker/Tai_lieu_hoc_tap/Game_co_ban/1st_game/src/movement/Demo.java</file>
-            <file>file:/E:/Personal/HTG%20Locker/Tai_lieu_hoc_tap/Game_co_ban/1st_game/src/pkg1st_game/KinematicSeek.java</file>
+            <file>file:/E:/Personal/HTG%20Locker/Tai_lieu_hoc_tap/Game_co_ban/1st_game/src/pkg1st_game/Demo_Arriving.java</file>
+            <file>file:/E:/Personal/HTG%20Locker/Tai_lieu_hoc_tap/Game_co_ban/1st_game/src/pkg1st_game/Game_Loop_Arriving.java</file>
+            <file>file:/E:/Personal/HTG%20Locker/Tai_lieu_hoc_tap/Game_co_ban/1st_game/src/pkg1st_game/Character.java</file>
             <file>file:/E:/Personal/HTG%20Locker/Tai_lieu_hoc_tap/Game_co_ban/1st_game/src/movement/GameLoop.java</file>
         </group>
     </open-files>
