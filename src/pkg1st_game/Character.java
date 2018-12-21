@@ -26,7 +26,7 @@ public class Character {
         
         public static double getNewOrientation(double currentOrientation, Vector2D velocity){
             if(velocity.getLength() > 0)
-                return Math.atan2(-velocity.getX(), velocity.getZ());
+                return -Math.atan2(-velocity.getX(), velocity.getZ());
             return currentOrientation;
         }
 

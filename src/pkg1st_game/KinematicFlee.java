@@ -1,4 +1,4 @@
-package movement;
+package pkg1st_game;
 
 public class KinematicFlee {
 	private Character character;	
@@ -48,7 +48,7 @@ public class KinematicFlee {
 	public KinematicOutput generateKinematicOutput(){
 		Vector2D velocity = new Vector2D();
 		//velocity = this.target.getPosition().subVector2D(this.character.getPosition());
-		velocity = this.character.getPosition().subVector2D(this.target.getPosition());
+		velocity = Vector2D.subVector2D(character.getPosition(), target.getPosition());
 		velocity.normalize();
 		velocity.mulConstant(this.maxSpeed);
 		

@@ -69,7 +69,7 @@ public class KinematicArriving {
         Vector2D velocity = new Vector2D();
         velocity = Vector2D.subVector2D(target.getPosition(), character.getPosition());
         if (velocity.getLength() < this.radius) {
-            return null;
+            return new KinematicOutput(new Vector2D(0,0), 0);
         }
         velocity = velocity.mulConstant(1 / timeToTarget);
         if (velocity.getLength() > this.maxSpeed) {
